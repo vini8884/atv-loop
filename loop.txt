@@ -1,0 +1,793 @@
+
+let nota;
+do {
+  nota = parseFloat(prompt("Digite uma nota entre 0 e 10:"))
+  if (nota < 0 || nota > 10) {
+    alert("Nota inválida! Tente novamente.")
+  }
+} while (nota < 0 || nota > 10)
+console.log("Nota válida:", nota)
+
+2. Loop de 1 a 100
+
+for (let i = 1; i <= 100; i++) {
+  console.log(i)
+}
+
+
+3. Senha diferente do nome de usuário
+
+let usuario, senha
+do {
+  usuario = prompt("Digite seu nome de usuário:")
+  senha = prompt("Digite sua senha:")
+  if (usuario === senha) {
+    alert("Senha não pode ser igual ao nome de usuário. Tente novamente.")
+  }
+} while (usuario === senha)
+console.log("Usuário e senha válidos!")
+
+
+4. Validação de dados (nome, idade, salário, sexo, estado civil)
+
+let nome, idade, salario, sexo, estadoCivil
+
+do {
+  nome = prompt("Digite seu nome (maior que 3 caracteres):")
+} while (nome.length <= 3)
+
+do {
+  idade = parseInt(prompt("Digite sua idade (entre 0 e 150):"))
+} while (idade < 0 || idade > 150);
+
+do {
+  salario = parseFloat(prompt("Digite seu salário (maior que zero):"))
+} while (salario <= 0)
+
+do {
+  sexo = prompt("Digite seu sexo ('f' ou 'm'):")
+} while (sexo !== 'f' && sexo !== 'm')
+
+do {
+  estadoCivil = prompt("Digite seu estado civil ('s', 'c', 'v', 'd'):")
+} while (!['s', 'c', 'v', 'd'].includes(estadoCivil))
+
+console.log("Dados validados com sucesso!")
+
+
+5. Cálculo de anos para população A ultrapassar B 
+
+let popA = 80000
+let popB = 200000
+let taxaA = 0.03
+let taxaB = 0.015
+let anos = 0
+
+while (popA < popB) {
+  popA += popA * taxaA
+  popB += popB * taxaB
+  anos++
+}
+
+console.log(`Anos necessários: ${anos}`)
+
+
+6. População A e B com entrada do usuário
+
+let popA, popB, taxaA, taxaB, anos
+
+do {
+  popA = parseInt(prompt("Digite a população do país A:"))
+  popB = parseInt(prompt("Digite a população do país B:"))
+  taxaA = parseFloat(prompt("Digite a taxa de crescimento anual de A (%):")) / 100
+  taxaB = parseFloat(prompt("Digite a taxa de crescimento anual de B (%):")) / 100
+
+  anos = 0
+  while (popA < popB) {
+    popA += popA * taxaA
+    popB += popB * taxaB
+    anos++
+  }
+
+  console.log(`Anos necessários para A ultrapassar B: ${anos}`)
+} while (confirm("Deseja calcular novamente?"))
+
+
+7. Imprimir números de 1 a 20 (vertical e horizontal)
+
+
+
+for (let i = 1; i <= 20; i++) {
+  console.log(i)
+}
+
+
+let numbers = ''
+for (let i = 1; i <= 20; i++) {
+  numbers += i + ' '
+}
+console.log(numbers)
+
+
+8. Maior número entre 5 números
+
+let maior = -Infinity;
+for (let i = 0; i < 5; i++) {
+  let numero = parseInt(prompt(`Digite o ${i + 1}° número:`))
+  if (numero > maior) {
+    maior = numero
+  }
+}
+console.log("Maior número:", maior)
+
+
+9. Soma e média de 5 números
+
+let soma = 0
+for (let i = 0; i < 5; i++) {
+  soma += parseInt(prompt(`Digite o ${i + 1}° número:`))
+}
+let media = soma / 5
+console.log("Soma:", soma)
+console.log("Média:", media)
+
+
+10. Números ímpares entre 1 e 50
+
+for (let i = 1; i <= 50; i++) {
+  if (i % 2 !== 0) {
+    console.log(i)
+  }
+}
+
+
+11. Números entre dois inteiros
+
+let num1 = parseInt(prompt("Digite o primeiro número:"))
+let num2 = parseInt(prompt("Digite o segundo número:"))
+
+for (let i = num1 + 1; i < num2; i++) {
+  console.log(i)
+}
+
+12. Soma dos números entre dois inteiros
+
+let num1 = parseInt(prompt("Digite o primeiro número:"))
+let num2 = parseInt(prompt("Digite o segundo número:"))
+let soma = 0
+
+for (let i = num1 + 1; i < num2; i++) {
+  soma += i
+}
+
+
+console.log("Soma dos números entre", num1, "e", num2, "é", soma)
+
+
+13. Gerador de tabuada
+
+let num = parseInt(prompt("Digite o número para ver a tabuada:"))
+for (let i = 1; i <= 10; i++) {
+  console.log(`${num} X ${i} = ${num * i}`)
+}
+
+
+14. Cálculo de potência sem usar Math.pow
+
+let base = parseInt(prompt("Digite a base:"))
+let expoente = parseInt(prompt("Digite o expoente:"))
+let resultado = 1
+
+
+for (let i = 0; i < expoente; i++) {
+  resultado *= base
+}
+console.log(`${base} elevado a ${expoente} é ${resultado}`)
+
+15. Contagem de pares e ímpares em 10 números
+
+let pares = 0, impares = 0
+for (let i = 0; i < 10; i++) {
+  let num = parseInt(prompt(`Digite o ${i + 1}° número:`))
+  if (num % 2 === 0) {
+    pares++
+  } else {
+    impares++
+  }
+}
+console.log("Pares:", pares, "Ímpares:", impares)
+
+
+16. Série de Fibonacci até o n-ésimo termo
+
+let n = parseInt(prompt("Digite o número de termos da sequência de Fibonacci:"))
+let fibonacci = [0, 1]
+for (let i = 2; i < n; i++) {
+  fibonacci.push(fibonacci[i - 1] + fibonacci[i - 2])
+}
+console.log(fibonacci.join(', '))
+
+
+17. Fibonacci até número maior que 500
+
+let fibonacci = [0, 1]
+while (fibonacci[fibonacci.length - 1] <= 500) {
+  fibonacci.push(fibonacci[fibonacci.length - 1] + fibonacci[fibonacci.length - 2])
+}
+console.log(fibonacci.join(', '))
+
+18. Cálculo de fatorial de um número
+
+let numero = parseInt(prompt("Digite um número para calcular o fatorial:"))
+let fatorial = 1
+for (let i = 1; i <= numero; i++) {
+  fatorial *= i
+}
+console.log("Fatorial de " + numero + " é " + fatorial)
+
+
+19. Menor, maior e soma de N números
+
+let n = parseInt(prompt("Quantos números você vai inserir?"))
+let menor, maior, soma = 0
+
+for (let i = 0; i < n; i++) {
+  let num = parseInt(prompt(`Digite o ${i + 1}° número:`))
+  soma += num
+  if (i === 0) {
+    menor = maior = num
+  } else {
+    if (num < menor) menor = num
+    if (num > maior) maior = num;
+  }
+}
+
+console.log(`Menor valor: ${menor}, Maior valor: ${maior}, Soma: ${soma}`)
+
+
+20. Aceitar apenas números entre 0 e 1000
+
+let n = parseInt(prompt("Quantos números você vai inserir?"))
+let menor, maior, soma = 0
+
+for (let i = 0; i < n; i++) {
+  let num
+  do {
+    num = parseInt(prompt(`Digite o ${i + 1}° número (entre 0 e 1000):`))
+  } while (num < 0 || num > 1000)
+  soma += num
+  if (i === 0) {
+    menor = maior = num
+  } else {
+    if (num < menor) menor = num
+    if (num > maior) maior = num
+  }
+}
+
+console.log(`Menor valor: ${menor}, Maior valor: ${maior}, Soma: ${soma}`)
+
+
+21. Cálculo de fatorial com limites
+
+let continuar = true
+
+while (continuar) {
+  let numero = parseInt(prompt("Digite um número (menor que 16) para calcular o fatorial:"))
+  if (numero < 16 && numero >= 0) {
+    let fatorial = 1
+    for (let i = 1; i <= numero; i++) {
+      fatorial *= i
+    }
+    console.log(`Fatorial de ${numero} é ${fatorial}`)
+  } else {
+    console.log("Número inválido, deve ser menor que 16.")
+  }
+  continuar = confirm("Deseja calcular outro fatorial?")
+}
+
+
+22. Verificar se um número é primo
+
+let num = parseInt(prompt("Digite um número para verificar se é primo:"))
+let primo = true
+
+for (let i = 2; i < num; i++) {
+  if (num % i === 0) {
+    primo = false
+    break
+  }
+}
+
+if (primo && num > 1) {
+  console.log(`${num} é um número primo.`)
+} else {
+  console.log(`${num} não é primo.`)
+}
+
+
+23. Números divisíveis de um número
+
+let num = parseInt(prompt("Digite um número para verificar se é primo e por quais números ele é divisível:"))
+let divisores = []
+
+for (let i = 2; i < num; i++) {
+  if (num % i === 0) {
+    divisores.push(i)
+  }
+}
+
+if (divisores.length > 0) {
+  console.log(`${num} não é primo. Divisores: ${divisores.join(', ')}`)
+} else {
+  console.log(`${num} é primo.`)
+}
+
+
+24. Números primos até N
+
+let n = parseInt(prompt("Digite um número N:"))
+let divisões = 0
+
+for (let i = 2; i <= n; i++) {
+  let primo = true
+  for (let j = 2; j < i; j++) {
+    divisões++
+    if (i % j === 0) {
+      primo = false
+      break
+    }
+  }
+  if (primo) {
+    console.log(i)
+  }
+}
+
+console.log(`Total de divisões: ${divisões}`)
+
+
+25. Média Aritmética de N Notas
+
+let n = parseInt(prompt("Quantas notas você deseja inserir?"))
+let soma = 0
+
+for (let i = 0; i < n; i++) {
+  let nota = parseFloat(prompt(`Digite a ${i + 1}ª nota:`))
+  soma += nota
+}
+
+let media = soma / n
+console.log(`A média aritmética das notas é: ${media}`)
+
+
+26. Média de Idades (Jovem, Adulta ou Idosa)
+
+let n = parseInt(prompt("Quantas pessoas serão entrevistadas?"))
+let somaIdades = 0
+
+for (let i = 0; i < n; i++) {
+  let idade = parseInt(prompt(`Digite a idade da ${i + 1}ª pessoa:`))
+  somaIdades += idade
+}
+
+let mediaIdade = somaIdades / n
+
+if (mediaIdade <= 25) {
+  console.log("A turma é jovem.")
+} else if (mediaIdade <= 60) {
+  console.log("A turma é adulta.")
+} else {
+  console.log("A turma é idosa.")
+}
+
+
+27. Eleição com Três Candidatos
+
+let totalEleitores = parseInt(prompt("Digite o número total de eleitores:"))
+let votosCandidato1 = 0, votosCandidato2 = 0, votosCandidato3 = 0
+
+for (let i = 0; i < totalEleitores; i++) {
+  let voto = parseInt(prompt("Digite o número do candidato (1, 2 ou 3):"))
+  if (voto === 1) votosCandidato1++
+  else if (voto === 2) votosCandidato2++
+  else if (voto === 3) votosCandidato3++
+}
+
+console.log(`Votos Candidato 1: ${votosCandidato1}`)
+console.log(`Votos Candidato 2: ${votosCandidato2}`)
+console.log(`Votos Candidato 3: ${votosCandidato3}`)
+
+
+28. Número Médio de Alunos por Turma
+
+let turmas = parseInt(prompt("Quantas turmas você tem?"))
+let totalAlunos = 0
+
+for (let i = 0; i < turmas; i++) {
+  let alunos = parseInt(prompt(`Quantos alunos na ${i + 1}ª turma?`))
+  if (alunos <= 40) {
+    totalAlunos += alunos
+  } else {
+    console.log("Número de alunos por turma não pode ser maior que 40.")
+  }
+}
+
+let mediaAlunos = totalAlunos / turmas
+console.log(`O número médio de alunos por turma é: ${mediaAlunos}`)
+
+
+29. Valor Total Investido em CDs
+
+let quantidadeCDs = parseInt(prompt("Quantos CDs você comprou?"))
+let totalInvestido = 0
+
+for (let i = 0; i < quantidadeCDs; i++) {
+  let precoCD = parseFloat(prompt(`Digite o valor do ${i + 1}º CD:`))
+  totalInvestido += precoCD
+}
+
+let mediaInvestido = totalInvestido / quantidadeCDs
+console.log(`Valor total investido: R$ ${totalInvestido.toFixed(2)}`)
+console.log(`Valor médio gasto por CD: R$ ${mediaInvestido.toFixed(2)}`)
+
+
+30. Tabela de Preços de Itens
+
+console.log("Lojas Quase Dois - Tabela de preços")
+for (let i = 1; i <= 50; i++) {
+  let preco = i * 1.99
+  console.log(`${i} - R$ ${preco.toFixed(2)}`)
+}
+
+
+31. Tabela de Preços de Pães
+
+let precoPao = parseFloat(prompt("Digite o preço do pão:"))
+console.log("Panificadora Pão de Ontem - Tabela de preços")
+for (let i = 1; i <= 50; i++) {
+  let preco = i * precoPao
+  console.log(`${i} - R$ ${preco.toFixed(2)}`)
+}
+
+
+32. Caixa Registradora de Loja
+
+let continuar = true
+
+while (continuar) {
+  let totalCompra = 0
+  let produto = 1
+
+  while (true) {
+    let preco = parseFloat(prompt(`Produto ${produto}: R$`))
+    if (preco === 0) break
+    totalCompra += preco
+    produto++
+  }
+
+  console.log(`Total: R$ ${totalCompra.toFixed(2)}`)
+  let dinheiro = parseFloat(prompt("Dinheiro: R$"))
+  let troco = dinheiro - totalCompra
+  console.log(`Troco: R$ ${troco.toFixed(2)}`)
+
+  continuar = confirm("Deseja registrar outra compra?")
+}
+
+
+33. Temperaturas (Menor, Maior e Média)
+
+let continuar = true
+let temperaturas = []
+
+while (continuar) {
+  let temperatura = parseFloat(prompt("Digite uma temperatura:"))
+  temperaturas.push(temperatura)
+  continuar = confirm("Deseja inserir outra temperatura?")
+}
+
+let menorTemp = Math.min(...temperaturas)
+let maiorTemp = Math.max(...temperaturas)
+let mediaTemp = temperaturas.reduce((acc, temp) => acc + temp, 0) / temperaturas.length
+
+console.log(`Menor temperatura: ${menorTemp}`)
+console.log(`Maior temperatura: ${maiorTemp}`)
+console.log(`Média das temperaturas: ${mediaTemp.toFixed(2)}`)
+
+
+34. Verificar se um Número é Primo
+
+let num = parseInt(prompt("Digite um número para verificar se é primo:"))
+let primo = true
+
+for (let i = 2; i < num; i++) {
+  if (num % i === 0) {
+    primo = false
+    break
+  }
+}
+
+if (primo && num > 1) {
+  console.log(`${num} é um número primo.`)
+} else {
+  console.log(`${num} não é primo.`)
+}
+
+
+35. Lista de Números Primos até um Número Informado
+
+let limite = parseInt(prompt("Digite um número limite:"))
+let primos = []
+
+for (let i = 2; i <= limite; i++) {
+  let primo = true
+  for (let j = 2; j < i; j++) {
+    if (i % j === 0) {
+      primo = false
+      break
+    }
+  }
+  if (primo) primos.push(i)
+}
+
+console.log("Números primos:", primos.join(", "))
+
+
+36. Tabuada com Intervalo Personalizado
+
+let num = parseInt(prompt("Montar a tabuada de:"))
+let comeco = parseInt(prompt("Começar por:"))
+let fim = parseInt(prompt("Terminar em:"))
+
+if (comeco > fim) {
+  console.log("O valor de término não pode ser menor que o valor inicial.")
+} else {
+  console.log(`Vou montar a tabuada de ${num} começando em ${comeco} e terminando em ${fim}:`)
+  for (let i = comeco; i <= fim; i++) {
+    console.log(`${num} X ${i} = ${num * i}`)
+  }
+}
+
+
+37. Mais Alto, Mais Baixo, Mais Gordo e Mais Magro
+
+let continuar = true
+let maisAlto = { codigo: null, altura: 0 }
+let maisBaixo = { codigo: null, altura: Infinity }
+let maisGordo = { codigo: null, peso: 0 }
+let maisMagro = { codigo: null, peso: Infinity }
+let somaAltura = 0, somaPeso = 0, totalClientes = 0
+
+while (continuar) {
+  let codigo = parseInt(prompt("Digite o código do cliente (0 para parar):"))
+  if (codigo === 0) break
+
+  let altura = parseFloat(prompt("Digite a altura do cliente:"))
+  let peso = parseFloat(prompt("Digite o peso do cliente:"))
+
+  if (altura > maisAlto.altura) maisAlto = { codigo, altura }
+  if (altura < maisBaixo.altura) maisBaixo = { codigo, altura }
+  if (peso > maisGordo.peso) maisGordo = { codigo, peso }
+  if (peso < maisMagro.peso) maisMagro = { codigo, peso }
+
+  somaAltura += altura
+  somaPeso += peso
+  totalClientes++
+}
+
+console.log(`Mais alto: Código ${maisAlto.codigo} com ${maisAlto.altura}m`)
+console.log(`Mais baixo: Código ${maisBaixo.codigo} com ${maisBaixo.altura}m`)
+console.log(`Mais gordo: Código ${maisGordo.codigo} com ${maisGordo.peso}kg`)
+console.log(`Mais magro: Código ${maisMagro.codigo} com ${maisMagro.peso}kg`)
+console.log(`Média das alturas: ${somaAltura / totalClientes}`)
+console.log(`Média dos pesos: ${somaPeso / totalClientes}`)
+
+38. Aumento Salarial Anual
+Versão com salário fixo:
+
+let salario = 1000; // Salário inicial
+let ano = 1995
+let aumentoPercentual = 1.5 / 100; // 1.5% de aumento no primeiro ano
+
+for (let i = 1996; i <= 2024; i++) {
+  if (i == 1996) {
+    salario += salario * aumentoPercentual
+  } else {
+    aumentoPercentual *= 2; // O aumento dobra a cada ano a partir de 1997
+    salario += salario * aumentoPercentual
+  }
+}
+
+console.log(`O salário final em 2024 será R$ ${salario.toFixed(2)}`)
+
+Versão com salário inicial informado pelo usuário:
+
+let salario = parseFloat(prompt("Digite o salário inicial do funcionário:"))
+let ano = 1995
+let aumentoPercentual = 1.5 / 100
+
+for (let i = 1996; i <= 2024; i++) {
+  if (i == 1996) {
+    salario += salario * aumentoPercentual
+  } else {
+    aumentoPercentual *= 2
+    salario += salario * aumentoPercentual
+  }
+}
+
+console.log(`O salário final em 2024 será R$ ${salario.toFixed(2)}`)
+
+39. Estatísticas de Acidentes de Trânsito
+
+let cidades = 5
+let maiorIndice = -Infinity
+let menorIndice = Infinity
+let maiorCidade = ''
+let menorCidade = ''
+let totalVeiculos = 0
+let totalAcidentes = 0
+let acidentesMenos2000Veiculos = 0
+let cidadesMenos2000 = 0
+
+for (let i = 0; i < cidades; i++) {
+  let codigoCidade = prompt(`Digite o código da cidade ${i + 1}:`)
+  let veiculos = parseInt(prompt(`Número de veículos de passeio na cidade ${codigoCidade}:`))
+  let acidentes = parseInt(prompt(`Número de acidentes com vítimas na cidade ${codigoCidade}:`))
+
+ 
+  let indiceAcidentes = acidentes / veiculos
+
+  if (indiceAcidentes > maiorIndice) {
+    maiorIndice = indiceAcidentes
+    maiorCidade = codigoCidade
+  }
+
+  if (indiceAcidentes < menorIndice) {
+    menorIndice = indiceAcidentes
+    menorCidade = codigoCidade
+  }
+
+
+  totalVeiculos += veiculos
+  totalAcidentes += acidentes
+
+
+  if (veiculos < 2000) {
+    acidentesMenos2000Veiculos += acidentes
+    cidadesMenos2000++
+  }
+}
+
+let mediaVeiculos = totalVeiculos / cidades
+let mediaAcidentesMenos2000 = cidadesMenos2000 > 0 ? acidentesMenos2000Veiculos / cidadesMenos2000 : 0
+
+console.log(`Maior índice de acidentes: Cidade ${maiorCidade} com índice ${maiorIndice.toFixed(4)}`)
+console.log(`Menor índice de acidentes: Cidade ${menorCidade} com índice ${menorIndice.toFixed(4)}`)
+console.log(`Média de veículos nas cidades: ${mediaVeiculos.toFixed(2)}`)
+console.log(`Média de acidentes nas cidades com menos de 2000 veículos: ${mediaAcidentesMenos2000.toFixed(2)}`)
+
+
+40. Cálculo de Dívida com Juros
+
+let divida = parseFloat(prompt("Digite o valor da dívida:"));
+let parcelas = [1, 3, 6, 9, 12]
+let juros = [0, 10, 15, 20, 25]
+
+console.log("Valor da Dívida | Valor dos Juros | Quantidade de Parcelas | Valor da Parcela")
+
+for (let i = 0; i < parcelas.length; i++) {
+  let quantidadeParcelas = parcelas[i]
+  let percentualJuros = juros[i]
+  let valorJuros = (divida * percentualJuros) / 100
+  let valorTotal = divida + valorJuros
+  let valorParcela = valorTotal / quantidadeParcelas
+
+  console.log(`R$ ${valorTotal.toFixed(2)} | R$ ${valorJuros.toFixed(2)} | ${quantidadeParcelas} | R$ ${valorParcela.toFixed(2)}`)
+}
+
+
+41. Cardápio de Lanchonete
+
+let menu = {
+  100: 1.20,
+  101: 1.30,
+  102: 1.50,
+  103: 1.20,
+  104: 1.30,
+  105: 1.00
+}
+
+let totalPedido = 0
+let continuar = true
+
+while (continuar) {
+  let codigo = parseInt(prompt("Digite o código do item (ou 0 para encerrar):"))
+  if (codigo === 0) break
+
+  if (menu[codigo]) {
+    let quantidade = parseInt(prompt("Quantos itens você deseja?"))
+    let precoItem = menu[codigo]
+    let totalItem = precoItem * quantidade
+    totalPedido += totalItem
+    console.log(`Item ${codigo} | Preço: R$ ${precoItem.toFixed(2)} | Quantidade: ${quantidade} | Total: R$ ${totalItem.toFixed(2)}`)
+  } else {
+    console.log("Código inválido.")
+  }
+
+  continuar = confirm("Deseja adicionar mais itens?")
+}
+
+console.log(`Total do pedido: R$ ${totalPedido.toFixed(2)}`)
+
+42. Eleição Presidencial
+
+let votos = {
+  1: 0,
+  2: 0,
+  3: 0,
+  4: 0,
+  5: 0,
+  6: 0
+}
+
+let continuar = true
+let totalVotos = 0
+
+while (continuar) {
+  let voto = parseInt(prompt("Digite o número do candidato (1, 2, 3, 4) ou 5 para nulo, 6 para em branco, 0 para encerrar:"))
+
+  if (voto === 0) break;
+
+  if (voto >= 1 && voto <= 6) {
+    votos[voto]++
+    totalVotos++
+  } else {
+    console.log("Voto inválido.")
+  }
+
+  continuar = confirm("Deseja registrar outro voto?");
+}
+
+let votosNulos = votos[5]
+let votosEmBranco = votos[6]
+
+console.log(`Total de votos para o candidato 1: ${votos[1]}`)
+console.log(`Total de votos para o candidato 2: ${votos[2]}`)
+console.log(`Total de votos para o candidato 3: ${votos[3]}`)
+console.log(`Total de votos para o candidato 4: ${votos[4]}`)
+console.log(`Total de votos nulos: ${votosNulos}`)
+console.log(`Total de votos em branco: ${votosEmBranco}`)
+console.log(`Percentagem de votos nulos: ${(votosNulos / totalVotos * 100).toFixed(2)}%`)
+console.log(`Percentagem de votos em branco: ${(votosEmBranco / totalVotos * 100).toFixed(2)}%`)
+
+43. Verificação de Notas de Alunos
+
+let gabarito = ['A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B']; // Exemplo de gabarito
+let totalAlunos = 0
+let totalAcertos = 0
+let maiorNota = 0
+let menorNota = 10 
+
+while (true) {
+  let acertos = 0;
+
+  for (let i = 0; i < 10; i++) {
+    let resposta = prompt(`Digite sua resposta para a questão ${i + 1} (A, B, C ou D):`)
+    if (resposta.toUpperCase() === gabarito[i]) {
+      acertos++
+    }
+  }
+  totalAlunos++
+  totalAcertos += acertos
+
+  if (acertos > maiorNota) maiorNota = acertos
+  if (acertos < menorNota) menorNota = acertos
+
+  let outroAluno = confirm("Outro aluno vai utilizar o sistema?")
+  if (!outroAluno) break
+}
+
+let mediaNotas = totalAcertos / totalAlunos
+
+console.log(`Maior nota: ${maiorNota}`)
+console.log(`Menor nota: ${menorNota}`)
+console.log(`Total de alunos: ${totalAlunos}`)
+console.log(`Média das notas: ${mediaNotas.toFixed(2)}`)
